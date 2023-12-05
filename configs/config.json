@@ -1,0 +1,109 @@
+{
+  "tables": {
+    "ingress::table_vf_forward": {
+      "default_rule": {
+        "name": "default",
+        "action": {
+          "type": "ingress::forward",
+          "data": {
+            "port": {
+              "value": "p0"
+            }
+          }
+        }
+      },
+      "rules": [
+        {
+          "name": "p0_to_v0",
+          "match": {
+            "standard_metadata.ingress_port": {
+              "value": "p0"
+            }
+          },
+          "action": {
+            "type": "ingress::forward",
+            "data": {
+              "port": {
+                "value": "v0.0"
+              }
+            }
+          }
+        },
+        {
+          "name": "v0_to_p0",
+          "match": {
+            "standard_metadata.ingress_port": {
+              "value": "v0.0"
+            }
+          },
+          "action": {
+            "type": "ingress::forward",
+            "data": {
+              "port": {
+                "value": "p0"
+              }
+            }
+          }
+        },
+        {
+          "name": "p2_to_v1",
+          "match": {
+            "standard_metadata.ingress_port": {
+              "value": "p2"
+            }
+          },
+          "action": {
+            "type": "ingress::forward",
+            "data": {
+              "port": {
+                "value": "v0.1"
+              }
+            }
+          }
+        },
+        {
+          "name": "v1_to_p2",
+          "match": {
+            "standard_metadata.ingress_port": {
+              "value": "v0.1"
+            }
+          },
+          "action": {
+            "type": "ingress::forward",
+            "data": {
+              "port": {
+                "value": "p2"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "egress::table_append_nfp_mac_eg_cmd": {
+      "rules": [
+        {
+          "name": "p0",
+          "match": {
+            "standard_metadata.egress_port": {
+              "value": "p0"
+            }
+          },
+          "action": {
+            "type": "egress::append_nfp_mac_eg_cmd"
+          }
+        },
+        {
+          "name": "p2",
+          "match": {
+            "standard_metadata.egress_port": {
+              "value": "p2"
+            }
+          },
+          "action": {
+            "type": "egress::append_nfp_mac_eg_cmd"
+          }
+        }
+      ]
+    }
+  }
+}
