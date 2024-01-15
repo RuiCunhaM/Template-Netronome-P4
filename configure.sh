@@ -18,7 +18,7 @@ M_GROUP_COUNT=16
 M_GROUP_SIZE=16
 
 NO_REDUCE_THREAD=false
-SHARED_CODESTORE=false
+NO_SHARED_CODESTORE=false
 NO_HEADER_OPTS=false
 IMPLICIT_HEADER_VALID=false
 NO_ZERO_NEW_HEADERS=false
@@ -55,8 +55,8 @@ for i in "$@"; do
       NO_REDUCE_THREAD=true
       shift
       ;;
-    --shared-codestore)
-      SHARED_CODESTORE=true
+    --no-shared-codestore)
+      NO_SHARED_CODESTORE=true
       shift
       ;;
     --p4-version=*)
@@ -123,11 +123,11 @@ else
   COMMAND+=" --reduced-thread-usage"
 fi
 
-if $SHARED_CODESTORE;
+if $NO_SHARED_CODESTORE;
 then
-  COMMAND+=" --shared-codestore"
-else
   COMMAND+=" --no-shared-codestore"
+else
+  COMMAND+=" --shared-codestore"
 fi
 
 if $NO_HEADER_OPTS;

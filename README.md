@@ -41,7 +41,7 @@ Available options for the `configure.sh` script. Note that `nfp4build` has addit
 | --me-count | Number of Microengines to instantiate | " " (Maximum) |
 | --sandbox-c | C plugin source file (without extension) | " " (none) |
 | --no-reduce-threads | Use 8-context mode for microengines | false |
-| --shared-codestore | Build with shared codestore support | false |
+| --no-shared-codestore | Build with no shared codestore support | false |
 | --p4-version | P4 version | 16 |
 | --no-header-ops | Do not allow all headers to be addable/removable | false |
 | --implicit-header-valid | Enable P4 implicit header valid matching semantics | false |
