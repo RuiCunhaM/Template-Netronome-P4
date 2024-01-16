@@ -7,24 +7,28 @@ A template repository to work with P4 programs on Netronome SmartNICs.
 
 **This assumes you have the SDK Hosted Toolchain installed locally**
 
-1. Run `./configure.sh` with the intended options to generate the `Makefile`
+1. Click in `Use this Template > Create a new repository` to create your own repository
+
+2. Clone your repository
+
+3. Run `./configure.sh` with the intended options to generate the `Makefile`
     - Example:
         ```
         ./configure.sh --option_1=value --option_2=value --flag_option
         ```
     - **Default options are recommended.** See [Configuration Options](#configuration-options) for a full list.
 
-2. Add your program's source files to the `src` directory
+4. Add your program's source files to the `src` directory
 
-3. Run `make` to compile your program
+5. Run `make` to compile your program
 
-4. Load your program:
+6. Load your program:
     ```
     make load REMOTEHOST=<target host> CONFIG=<config_file.json>
     ```
     - `CONFIG` default value is `configs/config.json`
 
-5. You can repeat step **1.** any time to adjust options and create a new `Makefile`
+7. You can repeat step **1.** any time to adjust options and generate a new `Makefile`
 
 ---
 
