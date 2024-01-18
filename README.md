@@ -27,7 +27,7 @@ A template repository to work with P4 programs on Netronome SmartNICs. Mostly a 
     ```
     - `CONFIG` default value is `configs/config.json`
 
-7. You can repeat step **1.** any time to adjust options and generate a new `Makefile`
+7. You can repeat step **3.** any time to adjust options and generate a new `Makefile`
 
 ---
 
