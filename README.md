@@ -1,7 +1,6 @@
 # Template Netronome P4
 
-A template repository to work with P4 programs on Netronome SmartNICs.
-
+A template repository to work with P4 programs on Netronome SmartNICs. Mostly a wrapper around `nfp4build` with sensible defaults for `Agilio CX 2x10GbE` SmartNICs. 
 
 ## Usage
 
@@ -34,7 +33,8 @@ A template repository to work with P4 programs on Netronome SmartNICs.
 
 ## Configuration Options
 
-Available options for the `configure.sh` script. Note that `nfp4build` has additional options available not covered by this script. For more details run `nfp4build --help`.
+> [!NOTE]  
+> `nfp4build` has additional options available not covered/wrapped by this script but that can also be used. For more details run `nfp4build --help`.
 
 | Option | Description | Default Vaue |
 |--------|-------------|--------------|

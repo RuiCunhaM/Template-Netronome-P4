@@ -23,6 +23,7 @@ NO_HEADER_OPTS=false
 IMPLICIT_HEADER_VALID=false
 NO_ZERO_NEW_HEADERS=false
 
+EXTRA_ARGS=""
 
 # Parse arguments
 for i in "$@"; do
@@ -84,10 +85,11 @@ for i in "$@"; do
       shift
       ;;
     --*)
-      echo "Unknown option $i"
-      exit 1
+      EXTRA_ARGS+=" $i"
       ;;
     *)
+      echo "Unknown option: $i"
+      exit 1
       ;;
   esac
 done
@@ -101,6 +103,7 @@ COMMAND="/opt/netronome/p4/bin/nfp4build --output-nffw-filename ./build/$PROGRAM
 " --nfp4c_p4_compiler p4c-nfp"\
 " --nfirc_multicast_group_count $M_GROUP_COUNT"\
 " --nfirc_multicast_group_size $M_GROUP_SIZE"\
+" $EXTRA_ARGS"\
 
 if [ -n "$ME_COUNT" ];
 then 
