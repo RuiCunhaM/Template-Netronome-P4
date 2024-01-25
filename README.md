@@ -42,7 +42,7 @@ Netronome's compiler ignores the `@atomic` annotation present in P4's specificat
 
 1. Declare the C plugin source file when running the `configure.sh` script:
     ```
-    ./configure.sh --sandbox-c=critical
+    ./configure.sh --sandbox-c=src/critical.c
     ```
 
 2. Declare the extern functions in P4:
@@ -68,11 +68,11 @@ Netronome's compiler ignores the `@atomic` annotation present in P4's specificat
 | Option | Description | Default Vaue |
 |--------|-------------|--------------|
 | --program | Program's name | program |
-| --source | Main P4 source file (without extension) | main |
+| --source | Path to main P4 source file | src/main.p4 |
 | --sku | SKU | AMDA0096-0001:0 |
 | --platform | Platform | lithium |
 | --me-count | Number of Microengines to instantiate | " " (Maximum) |
-| --sandbox-c | C plugin source file (without extension) | " " (none) |
+| --sandbox-c | Path to C plugin source file | " " (none) |
 | --no-reduce-threads | Use 8-context mode for microengines | false |
 | --no-shared-codestore | Build with no shared codestore support | false |
 | --p4-version | P4 version | 16 |

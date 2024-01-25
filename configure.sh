@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROGRAM=program
-SOURCE=main
+SOURCE=src/main.p4
 SANDBOX=""
 
 P4_VERSION=16
@@ -113,7 +113,7 @@ fi
 if [ -n "$SANDBOX" ];
 then 
   COMMAND+=" --define PIF_PLUGIN_INIT"
-  COMMAND+=" --sandbox-c src/$SANDBOX.c"
+  COMMAND+=" --sandbox-c $SANDBOX"
 fi
 
 # Since there is no clear indication which one is the default option
@@ -155,7 +155,7 @@ else
 fi
 
 
-COMMAND+=" --incl-p4-build src/$SOURCE.p4"
+COMMAND+=" --incl-p4-build $SOURCE"
 
 # Create build directory
 mkdir -p build
