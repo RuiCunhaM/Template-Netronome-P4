@@ -31,6 +31,35 @@ A template repository to work with P4 programs on Netronome SmartNICs. Mostly a 
 
 ---
 
+## Critical Sections
+
+Netronome's compiler ignores the `@atomic` annotation present in P4's specification. To create critical sections an example C plugin is included at [`src/critical.c`](src/critical.c).
+
+##### Usage:
+
+> [!WARNING]
+> This implementation utilizes only one spin lock! If you have multiple critical regions they will all share the same lock! 
+
+1. Declare the C plugin source file when running the `configure.sh` script:
+    ```
+    ./configure.sh --sandbox-c=critical
+    ```
+
+2. Declare the extern functions in P4:
+    ```p4
+    extern void critical_begin();
+    extern void critical_end();
+    ```
+
+3. Delimit your critical sections:
+    ```p4
+    critical_begin();
+    // Your critical code
+    critical_end();
+    ```
+
+---
+
 ## Configuration Options
 
 > [!NOTE]  
