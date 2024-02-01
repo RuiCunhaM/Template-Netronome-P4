@@ -165,18 +165,15 @@ $COMMAND
 
 echo "# $COMMAND" > Makefile
 
-cat Makefile-nfp4build >> Makefile
-rm Makefile-nfp4build
-
-echo "" >> Makefile
-echo "################" >> Makefile
-echo "# Custom Rules #" >> Makefile
-echo "################" >> Makefile
-
-# Add load rule
 echo "
 REMOTEHOST=<remote-host>
 CONFIG=configs/config.json
+
+.PHONY: default
+default:
+	\$(MAKE) -f Makefile-nfp4build 
+	./utils/fix-cache-bypass.sh	
+	\$(MAKE) -f Makefile-nfp4build 
 
 .PHONY: load
 load: \$(OUTDIR)/$PROGRAM.nffw

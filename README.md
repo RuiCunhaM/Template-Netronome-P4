@@ -60,6 +60,19 @@ Netronome's compiler ignores the `@atomic` annotation present in P4's specificat
 
 ---
 
+## Cache Bypass
+
+Due to cached lookups in Netronome's P4 implementation, P4 register accesses that affect control flow can result in unexpected behavior. To mitigate this, the pragma `@pragma netro no_lookup_caching <action name>` can be attached to an action definition forcing the cached lookup to be ignored. **Refer to Netronome's documentation for more details.**
+
+As of the most recent SDK version, Netronome's compiler fails to compile when such pragma is declared in `P4-16` programs. Using `#pragma netro no_lookup_caching <action name>`, as seen in other public available examples, allows for successful compilation. However, in this case, the pragma is ignored, resulting in no changes to the final program.  
+
+The scripts at [utils/](/utils) provide a workaround to this problem by directly adding to the intermediate C generated code the required changes. Using `#pragma netro no_lookup_caching <action name>` will then result in the expected behavior.
+
+> [!NOTE]
+> The scripts are executed automatically when running `make` to compile the program. No manually intervention is required! 
+
+---
+
 ## Configuration Options
 
 > [!NOTE]  
