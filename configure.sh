@@ -178,4 +178,7 @@ default:
 .PHONY: load
 load: \$(OUTDIR)/$PROGRAM.nffw
 	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)
-" >> Makefile
+
+.PHONY: clean
+clean:
+	\$(MAKE) -f Makefile-nfp4build clean" >> Makefile
