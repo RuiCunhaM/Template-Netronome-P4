@@ -73,6 +73,17 @@ The scripts at [utils/](/utils) provide a workaround to this problem by directly
 
 ---
 
+## Reglocked
+
+The pragma `@pragma netro reglocked <register name>` can be used to ensure mutual exclusion when accessing a given register. **Refer to Netronome's documentation for more details.** 
+
+In a similar way to [Cache Bypass](#cache-bypass) this **does not work with `P4-16` and the most recent SDK version!!**
+
+> [!WARNING]
+> This fix is yet NOT IMPLEMENTED in this template!!
+
+---
+
 ## Configuration Options
 
 > [!NOTE]  
