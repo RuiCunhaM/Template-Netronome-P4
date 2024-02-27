@@ -13,7 +13,7 @@ A template repository to work with P4 programs on Netronome SmartNICs. Mostly a 
 3. Run `./configure.sh` with the intended options to generate the `Makefile`
     - Example:
         ```
-        ./configure.sh --option_1=value --option_2=value --flag_option
+        ./configure.sh --program=my_program --option_n=value --flag_option
         ```
     - **Default options are recommended.** See [Configuration Options](#configuration-options) for a full list.
 
