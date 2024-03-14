@@ -165,7 +165,7 @@ $COMMAND
 
 echo "
 REMOTEHOST=<remote-host>
-CONFIG=configs/config.json
+CONFIG=configs/config.p4cfg
 
 .PHONY: load
 load: \$(OUTDIR)/$PROGRAM.nffw
@@ -175,7 +175,7 @@ echo "# $COMMAND" > Makefile
 
 echo "
 REMOTEHOST=<remote-host>
-CONFIG=configs/config.json
+CONFIG=configs/config.p4cfg
 
 .PHONY: default
 default:

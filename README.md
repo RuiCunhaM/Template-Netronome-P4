@@ -23,9 +23,9 @@ A template repository to work with P4 programs on Netronome SmartNICs. Mostly a 
 
 6. Load your program:
     ```
-    make load REMOTEHOST=<target host> CONFIG=<config_file.json>
+    make load REMOTEHOST=<target host> CONFIG=<config_file.p4cfg>
     ```
-    - `CONFIG` default value is `configs/config.json`
+    - `CONFIG` default value is `configs/config.p4cfg`
 
 7. You can repeat step **3.** any time to adjust options and generate a new `Makefile`
 
