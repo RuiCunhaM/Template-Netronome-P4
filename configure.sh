@@ -165,17 +165,21 @@ $COMMAND
 
 echo "
 REMOTEHOST=<remote-host>
-CONFIG=configs/config.json
+CONFIG=configs/config.p4cfg
 
 .PHONY: load
 load: \$(OUTDIR)/$PROGRAM.nffw
+	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)
+  
+.PHONY: push
+push:
 	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)" >> Makefile-nfp4build
 
 echo "# $COMMAND" > Makefile
 
 echo "
 REMOTEHOST=<remote-host>
-CONFIG=configs/config.json
+CONFIG=configs/config.p4cfg
 
 .PHONY: default
 default:
@@ -185,8 +189,12 @@ default:
 
 .PHONY: load
 load:
-	\$(MAKE) -f Makefile-nfp4build load REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG) 
-  
+	\$(MAKE) -f Makefile-nfp4build load REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG)
+
+.PHONY: push
+push:
+	\$(MAKE) -f Makefile-nfp4build push REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG) 
+
 .PHONY: clean
 clean:
 	\$(MAKE) -f Makefile-nfp4build clean" >> Makefile
