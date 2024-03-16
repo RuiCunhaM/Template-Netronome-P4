@@ -106,6 +106,7 @@ In a similar way to [Cache Bypass](#cache-bypass) this **does not work with `P4-
 | --sandbox-c | Path to C plugin source file | " " (none) |
 | --no-reduce-threads | Use 8-context mode for microengines | false |
 | --no-shared-codestore | Build with no shared codestore support | false |
+| --disable-flowcache | Disable flow cache | false |
 | --p4-version | P4 version | 16 |
 | --no-header-ops | Do not allow all headers to be addable/removable | false |
 | --implicit-header-valid | Enable P4 implicit header valid matching semantics | false |

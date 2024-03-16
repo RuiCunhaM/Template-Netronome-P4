@@ -22,6 +22,7 @@ NO_SHARED_CODESTORE=false
 NO_HEADER_OPTS=false
 IMPLICIT_HEADER_VALID=false
 NO_ZERO_NEW_HEADERS=false
+DISABLE_FLOWCACHE=false
 
 EXTRA_ARGS=""
 
@@ -58,6 +59,10 @@ for i in "$@"; do
       ;;
     --no-shared-codestore)
       NO_SHARED_CODESTORE=true
+      shift
+      ;;
+    --disable-flowcache)
+      DISABLE_FLOWCACHE=true
       shift
       ;;
     --p4-version=*)
@@ -114,6 +119,11 @@ if [ -n "$SANDBOX" ];
 then 
   COMMAND+=" --define PIF_PLUGIN_INIT"
   COMMAND+=" --sandbox-c $SANDBOX"
+fi
+
+if $DISABLE_FLOWCACHE;
+then
+  COMMAND+=" --disable-component flowcache"
 fi
 
 # Since there is no clear indication which one is the default option
