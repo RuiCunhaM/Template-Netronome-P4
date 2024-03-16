@@ -124,6 +124,7 @@ fi
 if $DISABLE_FLOWCACHE;
 then
   COMMAND+=" --disable-component flowcache"
+  COMMAND+=" --include \$(SDKP4DIR)/components/flowcache/me/lib/flowcache"
 fi
 
 # Since there is no clear indication which one is the default option
