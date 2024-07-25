@@ -31,6 +31,16 @@ A template repository to work with P4 programs on Netronome SmartNICs. Mostly a 
 
 ---
 
+## Extra Usages
+
+1. Loading a configuration without changing the program
+    ```
+    make reload REMOTEHOST=<target host> CONFIG=<config_file.p4cfg>
+    ```
+    - `CONFIG` default value is `configs/config.p4cfg`
+
+---
+
 ## Critical Sections
 
 Netronome's compiler ignores the `@atomic` annotation present in P4's specification. To create critical sections an example C plugin is included at [`src/critical.c`](src/critical.c).
