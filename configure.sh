@@ -184,7 +184,11 @@ load: \$(OUTDIR)/$PROGRAM.nffw
   
 .PHONY: push
 push:
-	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)" >> Makefile-nfp4build
+	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)
+
+.PHONY: reload
+reload:
+	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) config-reload -c \$(CONFIG)" >> Makefile-nfp4build
 
 echo "# $COMMAND" > Makefile
 
@@ -205,6 +209,10 @@ load:
 .PHONY: push
 push:
 	\$(MAKE) -f Makefile-nfp4build push REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG) 
+
+.PHONY: reload
+reload:
+	\$(MAKE) -f Makefile-nfp4build reload REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG) 
 
 .PHONY: clean
 clean:
