@@ -27,13 +27,6 @@ A template repository to work with P4 programs on Netronome SmartNICs. Mostly a 
     ```
     - `CONFIG` default value is `configs/config.p4cfg`
  
-> [!NOTE]
-> This will recompile the program applying cache bypass fixes. See [Cache Bypass](#cache-bypass) for a full explanation.
-> For just deploying without recompilation use:
-> ```
-> make push REMOTEHOST=<target host> CONFIG=<config_file.p4cfg>
-> ```
-
 7. You can repeat step **3.** any time to adjust options and generate a new `Makefile`
 
 ---
