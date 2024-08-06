@@ -179,13 +179,9 @@ REMOTEHOST=<remote-host>
 CONFIG=configs/config.p4cfg
 
 .PHONY: load
-load: \$(OUTDIR)/$PROGRAM.nffw
+load:
 	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)
   
-.PHONY: push
-push:
-	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) design-load -f \$(OUTDIR)/$PROGRAM.nffw -c \$(CONFIG)
-
 .PHONY: reload
 reload:
 	\$(SDKP4DIR)/bin/rtecli -r \$(REMOTEHOST) config-reload -c \$(CONFIG)" >> Makefile-nfp4build
@@ -205,10 +201,6 @@ default:
 .PHONY: load
 load:
 	\$(MAKE) -f Makefile-nfp4build load REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG)
-
-.PHONY: push
-push:
-	\$(MAKE) -f Makefile-nfp4build push REMOTEHOST=\$(REMOTEHOST) CONFIG=\$(CONFIG) 
 
 .PHONY: reload
 reload:
